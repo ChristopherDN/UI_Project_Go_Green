@@ -1,4 +1,4 @@
-package com.uiproject_go_green.controller;
+package com.uiproject_go_green.controller.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
