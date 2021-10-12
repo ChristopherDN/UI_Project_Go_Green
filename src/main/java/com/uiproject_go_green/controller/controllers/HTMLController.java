@@ -3,10 +3,12 @@ package com.uiproject_go_green.controller.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HTMLController {
+
+    String mail ="";
+
 
     @GetMapping("/about")
     public String about(){
@@ -38,14 +40,24 @@ public class HTMLController {
         return "testimonial.html";
     }
 
-
-public String subscribe(String name, String email){
-        return name + email;
+@GetMapping("/eSub")
+public String eSub(@RequestParam String email){
+    System.out.println(email);
+        return email;
 }
 
-public void saveEmail(String name, String email){
+@GetMapping("/contact")
+    public String pushButton(@RequestParam String email) {
+        mail = email;
+        saveEmail(mail);
+        return "index.html";
+    }
+
+
+
+public void saveEmail( String email){
         SQLcontroller sqLcontroller = new SQLcontroller();
-        sqLcontroller.scriptCommand("insert into gogreen.subscribers(name, email)values(" + name + email + ")");
+        sqLcontroller.scriptCommand("insert into gogreen.subscribers(name, email)values("  + email + ")");
 }
 
 }
