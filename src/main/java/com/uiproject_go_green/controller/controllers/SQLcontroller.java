@@ -13,18 +13,17 @@ public class SQLcontroller {
     String sqlCommand;
     ArrayList<String> commands = new ArrayList<>();
     Statement s;
-/*
-    public ResultSet scriptCommand(String sqlCommand) {
+
+    public void scriptCommand(String sqlCommand) {
         try {
-            connection = com.uiproject_go_green.controllers.DBManager.DBManager.getConnection();
+            connection = com.uiproject_go_green.controller.DBManager.DBManager.getConnection();
             ps = connection.prepareStatement(sqlCommand);
             rs = ps.executeQuery();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return rs;
     }
-
+/*
     public void batch(ArrayList<String> commands) {
         try {
             connection = com.uiproject_go_green.controller.DBManager.DBManager.getConnection();

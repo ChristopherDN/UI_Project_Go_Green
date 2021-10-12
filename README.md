@@ -1,11 +1,6 @@
 # Project
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/scottydocs/README-template.md)
-![GitHub contributors](https://img.shields.io/github/contributors/scottydocs/README-template.md)
-![GitHub stars](https://img.shields.io/github/stars/scottydocs/README-template.md?style=social)
-![GitHub forks](https://img.shields.io/github/forks/scottydocs/README-template.md?style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/scottydocs?style=social)
 
 Project name is Go_Green. It is a web application, which can be accessed by different users. The application can be accessed from a web browser by providing the correct URL. There are login functions for administrators and users(customers), when they provide sufficient user and password information. The users will be able to navigate the website making purchases and looking for information. Administrators will be able to collect information by making request to our database and get results back.
 
