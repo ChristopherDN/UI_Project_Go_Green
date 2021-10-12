@@ -1,12 +1,20 @@
 package com.uiproject_go_green.controller.controllers;
 
+import com.uiproject_go_green.controller.DBManager.DBManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 @Controller
 public class HTMLController {
-
+    Connection connection;
+    PreparedStatement ps;
+    ResultSet rs;
     String mail ="";
 
 
@@ -46,18 +54,33 @@ public String eSub(@RequestParam String email){
         return email;
 }
 
-@GetMapping("/contact")
+@GetMapping("/av")
     public String pushButton(@RequestParam String email) {
+        if(email == null) {
+            System.out.println("Fail!!!!");
+        }else {
+    System.out.println(email);
         mail = email;
-        saveEmail(mail);
+    System.out.println(mail);
+        saveEmail(mail);}
         return "index.html";
     }
 
 
 
-public void saveEmail( String email){
-        SQLcontroller sqLcontroller = new SQLcontroller();
-        sqLcontroller.scriptCommand("insert into gogreen.subscribers(name, email)values("  + email + ")");
+public void saveEmail(String email){
+    Connection connection;
+    DBManager dbManager = new DBManager();
+    connection = dbManager.getConnection();
+    try {
+        ps = connection.prepareStatement("insert into subscribers(email) values("  + email +")");
+        System.out.println(email + " test");
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    // SQLcontroller sqLcontroller = new SQLcontroller();
+
+       // sqLcontroller.scriptCommand("insert into subscribers(email) values("  + email +")");
 }
 
 }
