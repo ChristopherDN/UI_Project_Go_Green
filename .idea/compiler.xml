@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="UIProject_Go_Green" />
+        <module name="UI_Project_Go_Green" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="UIProject_Go_Green" options="-parameters" />
+      <module name="UI_Project_Go_Green" options="-parameters" />
     </option>
   </component>
 </project>
