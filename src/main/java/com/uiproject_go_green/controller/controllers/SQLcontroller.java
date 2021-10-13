@@ -9,16 +9,13 @@ import java.util.ArrayList;
 public class SQLcontroller {
     Connection connection;
     PreparedStatement ps;
-    ResultSet rs;
-    String sqlCommand;
-    ArrayList<String> commands = new ArrayList<>();
-    Statement s;
+    boolean rs;
 
     public void scriptCommand(String sqlCommand) {
         try {
             connection = com.uiproject_go_green.controller.DBManager.DBManager.getConnection();
             ps = connection.prepareStatement(sqlCommand);
-            rs = ps.executeQuery();
+            rs = ps.execute();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

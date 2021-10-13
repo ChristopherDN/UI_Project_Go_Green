@@ -16,6 +16,7 @@ public class HTMLController {
     PreparedStatement ps;
     ResultSet rs;
     String mail ="";
+    int i = 0;
 
 
     @GetMapping("/about")
@@ -48,39 +49,30 @@ public class HTMLController {
         return "testimonial.html";
     }
 
-@GetMapping("/eSub")
+/*@GetMapping("/eSub")
 public String eSub(@RequestParam String email){
-    System.out.println(email);
         return email;
-}
+}*/
 
 @GetMapping("/av")
     public String pushButton(@RequestParam String email) {
         if(email == null) {
             System.out.println("Fail!!!!");
         }else {
-    System.out.println(email);
-        mail = email;
-    System.out.println(mail);
-        saveEmail(mail);}
+            if (i == 0){
+                i++;
+                mail = email;
+                saveEmail(mail);
+            }
+        }
         return "index.html";
     }
 
 
 
 public void saveEmail(String email){
-    Connection connection;
-    DBManager dbManager = new DBManager();
-    connection = dbManager.getConnection();
-    try {
-        ps = connection.prepareStatement("insert into subscribers(email) values("  + email +")");
-        System.out.println(email + " test");
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    // SQLcontroller sqLcontroller = new SQLcontroller();
-
-       // sqLcontroller.scriptCommand("insert into subscribers(email) values("  + email +")");
+    SQLcontroller sqLcontroller = new SQLcontroller();
+    sqLcontroller.scriptCommand("insert into GoGreen.subscribers(email) values(\" " + email + "\")");
 }
 
 }
