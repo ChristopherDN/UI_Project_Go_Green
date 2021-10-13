@@ -60,7 +60,7 @@ public String eSub(@RequestParam String email){
             System.out.println("Fail!!!!");
         }else {
             if (i == 0){
-                i++;
+               // i++;
                 mail = email;
                 saveEmail(mail);
             }
@@ -72,7 +72,7 @@ public String eSub(@RequestParam String email){
 
 public void saveEmail(String email){
     SQLcontroller sqLcontroller = new SQLcontroller();
-    sqLcontroller.scriptCommand("insert into GoGreen.subscribers(email) values(\" " + email + "\")");
+    sqLcontroller.scriptCommand("insert into GoGreen.subscribers(email) values(\"" + email + "\")");
 }
 
 }
